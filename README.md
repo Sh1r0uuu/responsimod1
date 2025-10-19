@@ -16,8 +16,6 @@ Filter: Mengambil data sepatu yang sudah difilter berdasarkan status (misalnya, 
 - Struktur Data
 API ini menggunakan satu tabel di database Supabase (PostgreSQL) bernama shoe_items dengan skema sebagai berikut:
 
-SQL
-
 create table shoe_items (
   id uuid primary key default gen_random_uuid(),
   customer_name text not null,
@@ -25,7 +23,8 @@ create table shoe_items (
   status text default 'Diterima', -- Contoh: Diterima, Dicuci, Selesai
   created_at timstamptz default now()
 );
-Contoh Request dan Response
+
+- Contoh Request dan Response
 Berikut adalah contoh penggunaan endpoint API utama.
 
 BASE URL (Lokal): http://localhost:3000/api/items BASE URL (Publik): [https://responsimod1-d8va.vercel.app/]
@@ -35,16 +34,12 @@ Menambahkan data cucian sepatu baru.
 
 Request: POST /api/items Body (JSON):
 
-JSON
-
 {
   "customer_name": "Radhito",
   "shoe_type": "Sepatu hitam",
   "status": "Diterima"
 }
 Response: 201 Created
-
-JSON
 
 {
   "id": "a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
@@ -59,8 +54,6 @@ Mengambil seluruh daftar cucian sepatu.
 Request: GET /api/items
 
 Response: 200 OK
-
-JSON
 
 [
   {
